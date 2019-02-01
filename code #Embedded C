@@ -1,0 +1,22 @@
+#include <reg52.h>
+void Forward ()
+{
+  P2=0x09;
+}
+  void TurnLeft ()
+{
+  P2=0x05;
+}
+void main ()
+{
+  P0=0xff; //Port_0 as input
+  P2=0x00; //Port_2 as output
+
+ while (1)
+ {
+  if(P0==0x01)
+  TurnLeft ();
+ else
+  Forward ();
+ }
+}
